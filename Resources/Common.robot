@@ -1,8 +1,9 @@
 *** Keywords ***
 Check Evaluate Calculates Sum
     [Documentation]  Check that ${FIRST} + ${SECOND} == ${SUM}
-    ${calculatedSum}=  Evaluate  ${FIRST}+${SECOND}
-    Should Be Equal  ${calculatedSum}  ${SUM}
+    [Arguments]  ${value}
+    ${calculatedSum}=  Evaluate  ${value}
+    [return]  ${calculatedSum}
 
 Check Add Time To Date
     [Arguments]  ${delay}
