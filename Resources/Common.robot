@@ -1,10 +1,4 @@
 *** Keywords ***
-Check Evaluate Calculates Sum
-    [Documentation]  Check that ${FIRST} + ${SECOND} == ${SUM}
-    [Arguments]  ${value}
-    ${calculatedSum}=  Evaluate  ${value}
-    [return]  ${calculatedSum}
-
 Check Add Time To Date
     [Arguments]  ${delay}
     [Documentation]  Check that current time is ${delay} more than initial time
