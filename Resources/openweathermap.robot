@@ -2,6 +2,10 @@
 Library  SeleniumLibrary
 
 
+*** Variables ***
+${SIGNED_ALERT_LOCATOR}    //div[contains(text(),'Signed in successfully.')]
+
+
 *** Keywords ***
 Open Login Page
     [Arguments]    ${login_page}
@@ -21,17 +25,11 @@ Login to openweathermap
 
 
 Signed In Successfully Alert Should Be Displayed
-    Element Should Be Visible    //div[contains(text(),'Signed in successfully.')]
+    Element Should Be Visible    ${SIGNED_ALERT_LOCATOR}
 
 
 Invalid Email Or Password Alert Should Be Displayed
     Element Should Be Visible    //div[contains(text(),'Invalid Email or password.')]
-
-
-Login with invalid credentials should fail
-    [Arguments]      ${username}    ${password}
-    Login to openweathermap    ${username}    ${password}
-    Invalid Email Or Password Alert Should Be Displayed
 
 
 Close Signed Successfully Alert
@@ -39,7 +37,7 @@ Close Signed Successfully Alert
 
 
 Alert Should Not Be Displayed
-    Element Should Not Be Visible    //div[contains(text(),'Signed in successfully.')]
+    Element Should Not Be Visible    ${SIGNED_ALERT_LOCATOR}
 
 
 Logout from openweathermap
