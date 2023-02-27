@@ -9,10 +9,18 @@ Test Teardown    Close Browser
 
 
 *** Keywords ***
+User is redirected to sign in page on attempt to open home page
+    [Arguments]    ${HOME_URL}
+    Go to    ${HOME_URL}
+    Sleep    5s
+    ${current_url}=    Get Location
+    Should Be Equal  ${current_url}    ${HOME_URL}
+
 Login with invalid credentials should fail
     [Arguments]      ${username}    ${password}
     Login to openweathermap    ${username}    ${password}
     Invalid Email Or Password Alert Should Be Displayed
+    #user is redirected to sign in page on attempt to open home page
 
 
 *** Test Cases ***

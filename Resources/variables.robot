@@ -1,6 +1,7 @@
 *** Variables ***
 
 ${URL}    https://openweathermap.org
+${HOME_URL}    https://home.openweathermap.org/
 
 ${VALID_USERNAME}    totest0935@gmail.com
 ${VALID_PASSWORD}    GhrKL0935!
