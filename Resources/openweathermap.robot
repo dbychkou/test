@@ -28,6 +28,12 @@ Signed In Successfully Alert Should Be Displayed
     Element Should Be Visible    ${SIGNED_ALERT_LOCATOR}
 
 
+Homepage Should Be Displayed After Login
+    [Arguments]    ${HOME_URL}
+    ${current_url}=    Get Location
+    Should Be Equal  ${current_url}    ${HOME_URL}
+
+
 Invalid Email Or Password Alert Should Be Displayed
     Element Should Be Visible    //div[contains(text(),'Invalid Email or password.')]
 
