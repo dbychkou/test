@@ -12,9 +12,8 @@ Test Teardown    Close Browser
 User is redirected to sign in page on attempt to open home page
     [Arguments]    ${HOME_URL}    ${SIGNIN_URL}
     Go to    ${HOME_URL}
-    Sleep    5s
-    ${current_url}=    Get Location
-    Should Be Equal  ${current_url}    ${SIGNIN_URL}
+    Wait Until Location Is    ${SIGNIN_URL}
+
 
 Login with valid and invalid credentials
     [Arguments]      ${username}    ${password}    ${should_login}
