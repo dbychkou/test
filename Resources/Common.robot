@@ -1,4 +1,10 @@
 *** Keywords ***
+Calculate Sum
+    [Arguments]  ${value1}  ${value2}
+    ${result}=  BuiltIn.Evaluate  ${value1} + ${value2}
+    [Return]  ${result}
+
+
 Check Add Time To Date
     [Arguments]  ${delay}
     [Documentation]  Check that current time is ${delay} more than initial time
