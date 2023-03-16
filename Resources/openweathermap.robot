@@ -4,24 +4,37 @@ Library  SeleniumLibrary
 
 *** Variables ***
 ${SIGNED_ALERT_LOCATOR}    //div[contains(text(),'Signed in successfully.')]
+${MENU_LOCATOR}            //div[@class='inner-user-container']
 
 
 *** Keywords ***
+Wait Main Page Loading
+    Wait Until Element Is Not Visible    //*[contains(@class, 'owm-loader')]    10s
+
+
 Open Login Page
     [Arguments]    ${login_page}
     Open Browser    ${login_page}    chrome
     Maximize Browser Window
-    Wait Until Element Is Not Visible    //*[contains(@class, 'owm-loader')]    10s
+    Wait Main Page Loading
     Wait Until Element Is Visible    //a[contains(text(),'Sign in')]
     Click Element    //a[contains(text(),'Sign in')]
-    Wait Until Page Contains  Sign In To Your Account
+    Wait Until Page Contains    Sign In To Your Account
 
 
-Login to openweathermap
-    [Arguments]    ${username}    ${password}
-    Input Text    //*[@id='user_email']    ${username}
-    Input Password    //*[@id='user_password']    ${password}
-    Click Button    //*[@value='Submit']
+Open My Profile
+    Click Element    ${MENU_LOCATOR}
+    Click Link    /home
+    Wait Until Page Contains    My profile
+
+
+Open Main Page Using Logo
+    Click Element    //li[@class='logo']
+
+
+Logout from openweathermap
+    Click Element    ${MENU_LOCATOR}
+    Click Element    //a[contains(text(),'Logout')]
 
 
 Signed In Successfully Alert Should Be Displayed
@@ -46,10 +59,10 @@ Alert Should Not Be Displayed
     Element Should Not Be Visible    ${SIGNED_ALERT_LOCATOR}
 
 
-Logout from openweathermap
-    Click Element    //div[@class='inner-user-container']
-    Click Element    //a[@class='logout']
-
-
 Signed Out Notification Should Be Displayed
     Element Should Be Visible    //div[contains(text(),'You need to sign in or sign up before continuing.')]
+
+
+Username Should Be Updated In Menu
+    [Arguments]    ${new_user_name}
+    Element Should Contain    ${MENU_LOCATOR}    ${new_user_name}

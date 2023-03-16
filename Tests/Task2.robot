@@ -2,6 +2,7 @@
 Library  SeleniumLibrary
 Resource  ../Resources/openweathermap.robot
 Resource  ../Resources/variables.robot
+Resource  ../Resources/PageObject/Login.robot
 
 
 Test Setup    Open Login Page    ${URL}
@@ -55,7 +56,7 @@ Authorization notification is not closed automatically
 
 
 User logout
-    [Tags]  openweathermap
+    [Tags]  openweathermap  logout
     Login to openweathermap    ${VALID_USERNAME}    ${VALID_PASSWORD}
     Logout from openweathermap
     Signed Out Notification Should Be Displayed
