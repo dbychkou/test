@@ -8,7 +8,7 @@ Resource    ../Resources/PageObject/MyProfile.robot
 
 
 Test Setup    Open Login Page    ${URL}
-#Test Teardown    Close Browser
+Test Teardown    Close Browser
 
 
 *** Test Cases ***
