@@ -1,3 +1,4 @@
 robotframework
-selenium
+robotframework-requests
 robotframework-seleniumlibrary
+selenium
