@@ -2,14 +2,9 @@
 Library  SeleniumLibrary
 
 
-*** Variables ***
-${SIGNED_ALERT_LOCATOR}    //div[contains(text(),'Signed in successfully.')]
-${MENU_LOCATOR}            //div[@class='inner-user-container']
-
-
 *** Keywords ***
 Wait Main Page Loading
-    Wait Until Element Is Not Visible    //*[contains(@class, 'owm-loader')]    10s
+    Wait Until Element Is Not Visible    ${LOADER_LOCATOR}    10s
 
 
 Open Login Page
@@ -17,8 +12,8 @@ Open Login Page
     Open Browser    ${login_page}    chrome
     Maximize Browser Window
     Wait Main Page Loading
-    Wait Until Element Is Visible    //a[contains(text(),'Sign in')]
-    Click Element    //a[contains(text(),'Sign in')]
+    Wait Until Element Is Visible    ${MENU_SIGNIN_LOCATOR}
+    Click Element    ${MENU_SIGNIN_LOCATOR}
     Wait Until Page Contains    Sign In To Your Account
 
 
@@ -29,16 +24,16 @@ Open My Profile
 
 
 Open Main Page Using Logo
-    Click Element    //li[@class='logo']
+    Click Element    ${LOGO_LOCATOR}
 
 
 Logout from openweathermap
     Click Element    ${MENU_LOCATOR}
-    Click Element    //a[contains(text(),'Logout')]
+    Click Element    ${MENU_LOGOUT_LOCATOR}
 
 
 Signed In Successfully Alert Should Be Displayed
-    Element Should Be Visible    ${SIGNED_ALERT_LOCATOR}
+    Element Should Be Visible    ${ALERT_SIGNED_SUCCESSFULLY_LOCATOR}
 
 
 Homepage Should Be Displayed After Login
@@ -48,19 +43,19 @@ Homepage Should Be Displayed After Login
 
 
 Invalid Email Or Password Alert Should Be Displayed
-    Element Should Be Visible    //div[contains(text(),'Invalid Email or password.')]
+    Element Should Be Visible    ${INVALID_EMAIL_OR_PASSWRD_ALERT_LOCATOR}
 
 
 Close Signed Successfully Alert
-    Click Button    //*[@class='close']
+    Click Button    ${ALERT_BUTTON_CLOSE_LOCATOR}
 
 
 Alert Should Not Be Displayed
-    Element Should Not Be Visible    ${SIGNED_ALERT_LOCATOR}
+    Element Should Not Be Visible    ${ALERT_SIGNED_SUCCESSFULLY_LOCATOR}
 
 
 Signed Out Notification Should Be Displayed
-    Element Should Be Visible    //div[contains(text(),'You need to sign in or sign up before continuing.')]
+    Element Should Be Visible    ${SIGNEDOUT_ALERT_LOCATOR}
 
 
 Username Should Be Updated In Menu
