@@ -21,3 +21,9 @@ Login to openweathermap
     Input Text    ${LOGIN_FORM_EMAIL_LOCATOR}    ${username}
     Input Password    ${LOGIN_FORM_PASSWORD_LOCATOR}    ${password}
     Click Button    ${LOGIN_BUTTON_SAVE_LOCATOR}
+
+
+Invalid Email Or Password Alert Should Be Displayed
+    Element Should Be Visible    ${INVALID_EMAIL_OR_PASSWRD_ALERT_LOCATOR}
+
+

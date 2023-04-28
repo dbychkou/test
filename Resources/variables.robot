@@ -1,5 +1,4 @@
 *** Variables ***
-
 ${URL}    https://openweathermap.org
 ${HOME_URL}    https://home.openweathermap.org/
 ${SIGNIN_URL}    https://home.openweathermap.org/users/sign_in

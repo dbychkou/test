@@ -2,10 +2,12 @@
 Library  SeleniumLibrary
 Resource  ../Resources/openweathermap.robot
 Resource  ../Resources/variables.robot
+Resource  ../Resources/PageObject/Common.robot
 Resource  ../Resources/PageObject/Login.robot
+Resource  ../Resources/PageObject/NavigationMenu.robot
 
 
-Test Setup    Open Login Page    ${URL}
+Test Setup    Open Login Page
 Test Teardown    Close Browser
 
 
