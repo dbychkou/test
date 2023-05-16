@@ -1,10 +1,16 @@
+*** Settings ***
+Library    SeleniumLibrary
+
+
 *** Keywords ***
-Change User Name
-    ${new_user_name}=    String.Generate Random String    8    [LETTERS][NUMBERS]
-    Input Text   ${PROFILE_FORM_USERNAME_LOCATOR}    ${new_user_name}
-    Click Element    ${PROFILE_BUTTON_SAVE_LOCATOR}
-    [Return]    ${new_user_name}
+Fill Username On Profile Page
+    [Arguments]    ${new_username}
+    SeleniumLibrary.Input Text   ${PROFILE_FORM_USERNAME_LOCATOR}    ${new_username}
+
+
+Click Save Button On Profile Page
+    SeleniumLibrary.Click Element    ${PROFILE_BUTTON_SAVE_LOCATOR}
 
 
 Profile Updated Successfully Alert Should Be Displayed
-    Element Should Be Visible    ${PROFILE_UPDATED_SUCCESSFULLY_ALERT_LOCATOR}
+    SeleniumLibrary.Element Should Be Visible    ${PROFILE_UPDATED_SUCCESSFULLY_ALERT_LOCATOR}
