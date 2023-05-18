@@ -3,6 +3,13 @@ ${URL}    https://openweathermap.org
 ${HOME_URL}    https://home.openweathermap.org/
 ${SIGNIN_URL}    https://home.openweathermap.org/users/sign_in
 
+${BASE_API_URL}    https://api.openweathermap.org/data/2.5
+${APPID}        45d1a5bfa4a03eb1c7edb0b3574311d8
+${CITY_NAME}    Batumi
+${CITY_ID}      615532
+${LON}          41.6359
+${LAT}          41.6416
+
 
 ${VALID_USERNAME}    totest0935@gmail.com
 ${VALID_PASSWORD}    GhrKL0935!

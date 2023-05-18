@@ -1,7 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 
-Resource    ../Resources/variables.robot
+Resource    ../Resources/Variables.robot
 Resource    ../Resources/PageObject/MyProfile.robot
 Resource    ../Resources/PageObject/NavigationMenu.robot
 Resource    ../Resources/Setup.robot
