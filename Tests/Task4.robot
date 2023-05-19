@@ -1,7 +1,4 @@
 *** Settings ***
-Library    RequestsLibrary
-Library    Collections
-
 Resource    ../Resources/Variables.robot
 Resource    ../Resources/API/openweatherapp_api.robot
 
