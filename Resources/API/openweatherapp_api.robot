@@ -10,19 +10,25 @@ Start OpenWeatherMap Session
     [Return]    ${certifi_path}
 
 Compare Coordinates With Reference
-    [Arguments]    ${json_data}
+    [Arguments]    ${json_data}    ${lon}   ${lat}
     ${response_lon}    BuiltIn.Set Variable    ${json_data['coord']['lon']}
     ${response_lat}    BuiltIn.Set Variable    ${json_data['coord']['lat']}
     BuiltIn.Should Be Equal As Strings    ${response_lon}    ${lon}
     BuiltIn.Should Be Equal As Strings    ${response_lat}    ${lat}
 
 
-Get OpenWeather Data With Params
+Get Full OpenWeather JSON With Params
     [Arguments]    &{params}
     ${certifi_path}=    Start OpenWeatherMap Session
     ${response}=        RequestsLibrary.GET On Session    OpenWeatherMap    url=/weather    params=&{params}    verify=${certifi_path}
     BuiltIn.Should Be Equal As Strings    ${response.status_code}    200
     ${json_data}            Set Variable    ${response.json()}
+    [Return]    ${json_data}
+
+
+Get OpenWeather Data With Params
+    [Arguments]    &{params}
+    ${json_data}    Get Full OpenWeather JSON With Params    &{params}
     Collections.Remove From Dictionary    ${json_data}    dt
     [Return]    ${json_data}
 
@@ -43,9 +49,5 @@ Convert Kelvin to Fahrenheit
 
 Get OpenWeather Temperature In Specified Units
     [Arguments]    &{params}
-    ${certifi_path}=    Start OpenWeatherMap Session
-    ${response}=        RequestsLibrary.GET On Session    OpenWeatherMap    url=/weather    params=&{params}    verify=${certifi_path}
-    BuiltIn.Should Be Equal As Strings    ${response.status_code}    200
-    ${json_data}            BuiltIn.Set Variable    ${response.json()}
-    ${temp}      BuiltIn.Set Variable    ${json_data['main']['temp']}
-    [Return]    ${temp}
+    ${json_data}    Get Full OpenWeather JSON With Params    &{params}
+    [Return]        ${json_data['main']['temp']}

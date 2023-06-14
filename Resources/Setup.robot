@@ -9,6 +9,7 @@ Browser Setup
     SeleniumLibrary.Open Browser    browser=chrome
     SeleniumLibrary.Maximize Browser Window
 
+
 Setup Steps
     [Documentation]    Setup Browser and go to Login Page
     Browser Setup

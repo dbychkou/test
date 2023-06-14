@@ -7,7 +7,7 @@ Wait Main Page Loading
     SeleniumLibrary.Wait Until Element Is Not Visible    ${LOADER_LOCATOR}    10s
 
 Open Main Page And Wait
-    Go To    ${URL}
+    SeleniumLibrary.Go To    ${URL}
     Wait Main Page Loading
 
 

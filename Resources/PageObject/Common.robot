@@ -25,4 +25,4 @@ Signed Out Notification Should Be Displayed
 
 Invalid Email Or Password Alert Should Be Displayed
     [Documentation]    Check that invalid email or password alert is displayed
-    Element Should Be Visible    ${INVALID_EMAIL_OR_PASSWRD_ALERT_LOCATOR}
+    SeleniumLibrary.Element Should Be Visible    ${INVALID_EMAIL_OR_PASSWRD_ALERT_LOCATOR}
