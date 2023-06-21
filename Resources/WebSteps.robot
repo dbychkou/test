@@ -51,6 +51,7 @@ Change User Name
     [Return]    ${new_username}
 
 
-
-
-
+Get Temperature On UI
+    MainPage.Fill City Name And Select
+    ${ui_temperature}=    MainPage.Find Temperature On UI
+    [Return]    ${ui_temperature}
