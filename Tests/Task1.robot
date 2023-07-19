@@ -1,6 +1,6 @@
 *** Settings ***
 Library  DateTime
-Resource  ../Resources/Common.robot
+Resource  ../Resources/CommonSteps.robot
 
 
 *** Test Cases ***
