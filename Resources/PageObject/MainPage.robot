@@ -12,6 +12,7 @@ Open Main Page And Wait
 
 
 Fill City Name And Select
+    [Documentation]    Type city name and select this city in drop-down list
     SeleniumLibrary.Element Should Be Visible    ${CITY_SEARCH_FIELD_LOCATOR}
     SeleniumLibrary.Input Text    ${CITY_SEARCH_FIELD_LOCATOR}    ${FULL_CITY_NAME}
     SeleniumLibrary.Element Should Be Visible    ${CITY_SEARCH_BUTTON_LOCATOR}
@@ -20,7 +21,8 @@ Fill City Name And Select
     SeleniumLibrary.Click Element    ${CITY_DROPDOWN_LOCATOR}
 
 
-Find Temperature On UI
+Get Temperature On Main Page
+    [Documentation]    Get temperature value (without scale name) on main page
     SeleniumLibrary.Wait Until Element Contains    ${CITY_NAME_ON_UI_LOCATOR}    ${FULL_CITY_NAME}
     SeleniumLibrary.Element Should Be Visible    ${TEMPETATURE_ON_UI_LOCATOR}
     ${ui_temperature_celsius_text}=    SeleniumLibrary.Get Text    ${TEMPETATURE_ON_UI_LOCATOR}
@@ -29,5 +31,6 @@ Find Temperature On UI
 
 
 Switch UI to Imperial
+    [Documentation]    Change temperature scale to Imperial on UI
     SeleniumLibrary.Element Should Be Visible    ${IMPERIAL_SWITCHER_LOCATOR}
     SeleniumLibrary.Click Element    ${IMPERIAL_SWITCHER_LOCATOR}

@@ -13,14 +13,14 @@ Test Teardown    SeleniumLibrary.Close Browser
 *** Test Cases ***
 Compare data from ui with api (celsius)
     [Tags]    Task5
-    ${ui_temparature_celsius}=  WebSteps.Get Temperature On UI
+    ${ui_temparature_celsius}=  WebSteps.Get Temperature On UI For Desired City
     ${temperature_celsius}    openweatherapp_api.Get OpenWeather Temperature In Specified Units    q=${city_name}    units=metric    appid=${appid}
-    BuiltIn.Should Be True    abs(${temperature_celsius} - ${ui_temparature_celsius}) < 1
+    WebSteps.Difference Should Be Less Than One    ${temperature_celsius}    ${ui_temparature_celsius}
 
 
 Compare data from ui with api (kelvin)
     [Tags]    Task5
     MainPage.Switch UI to Imperial
-    ${ui_temparature_farenheit}=  WebSteps.Get Temperature On UI
+    ${ui_temparature_farenheit}=  WebSteps.Get Temperature On UI For Desired City
     ${temperature_farenheit}    openweatherapp_api.Get OpenWeather Temperature In Specified Units    q=${city_name}    units=imperial    appid=${appid}
-    BuiltIn.Should Be True    abs(${temperature_farenheit} - ${ui_temparature_farenheit}) < 1
+    WebSteps.Difference Should Be Less Than One    ${temperature_farenheit}    ${ui_temparature_farenheit}

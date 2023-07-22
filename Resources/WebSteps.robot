@@ -51,7 +51,12 @@ Change User Name
     [Return]    ${new_username}
 
 
-Get Temperature On UI
+Get Temperature On UI For Desired City
     MainPage.Fill City Name And Select
-    ${ui_temperature}=    MainPage.Find Temperature On UI
+    ${ui_temperature}=    MainPage.Get Temperature On Main Page
     [Return]    ${ui_temperature}
+
+
+Difference Should Be Less Than One
+    [Arguments]    ${value1}    ${value2}
+    BuiltIn.Should Be True    abs(${value1} - ${value2}) < 1
