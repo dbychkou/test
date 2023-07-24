@@ -15,3 +15,9 @@ Setup Steps
     Browser Setup
     MainPage.Open Main Page And Wait
     NavigationMenu.Open Login Page
+
+
+Browser Setup And Go To Main Page
+    [Documentation]    Setup Browser and go to Main Page
+    Browser Setup
+    MainPage.Open Main Page And Wait

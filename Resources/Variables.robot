@@ -45,3 +45,12 @@ ${PROFILE_UPDATED_SUCCESSFULLY_ALERT_LOCATOR}    //div[contains(text(),'Profile 
 
 ${LOGO_LOCATOR}    //li[@class='logo']
 
+
+${FULL_CITY_NAME}             Batumi, GE
+${CITY_SEARCH_FIELD_LOCATOR}    //*[@id="weather-widget"]//div/input
+${CITY_SEARCH_BUTTON_LOCATOR}    //*[@id="weather-widget"]//button
+${CITY_DROPDOWN_LOCATOR}    //ul[@class="search-dropdown-menu"]/li/span[contains(text(),'${FULL_CITY_NAME}')]
+
+${CITY_NAME_ON_UI_LOCATOR}    //div[@class="current-container mobile-padding"]/div/h2
+${TEMPETATURE_ON_UI_LOCATOR}    //div[@class="current-temp"]/span
+${IMPERIAL_SWITCHER_LOCATOR}    //div[contains(text(),'Imperial: °F, mph')]
